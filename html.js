@@ -1,3 +1,5 @@
+let pixels = 50;
+
 function createBox(num) {
   const box = document.createElement("div");
   box.classList.add("box");
@@ -28,5 +30,22 @@ function createGrid(num) {
   return main;
 }
 
-const main = document.getElementById("mainContainer");
-main.insertAdjacentElement("beforeend", createGrid(60));
+const range = document.getElementById("rangeSlider");
+range.setAttribute("value", pixels);
+
+range.addEventListener("change", (e) => {
+  console.log("e.target.value", e.target.value);
+  if (e.target.value !== pixels) {
+    let main = document.getElementsByClassName("main")[0];
+    main.remove();
+    pixels = e.target.value;
+    insertMain();
+  }
+});
+
+function insertMain() {
+  const wrapper = document.getElementById("mainWrapper");
+  wrapper.insertAdjacentElement("beforeend", createGrid(pixels));
+}
+
+insertMain();

@@ -28,7 +28,7 @@ body {
 }
 #logo {
   color: goldenrod;
-  font-size: 48px;
+  font-size: 30px;
   font-family: cursive;
   text-align: center;
   width: 100%;
@@ -36,13 +36,17 @@ body {
 }
 #mainContainer {
   background: #555;
-  width: 70%;
-  height: 65%;
+  padding: 30px;
   border-radius: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#mainWrapper {
+  width: var(--main-sides);
+  aspect-ratio: 1/1;
 }
 #knobs {
   width: 100%;
@@ -50,7 +54,7 @@ body {
 }
 
 .box {
-  width: calc(var(--main-sides) / var(--pixels));
+  width: calc((var(--main-sides) - var(--pixels) * 1px + 1px) / var(--pixels));
   aspect-ratio: 1/1;
   background: plum;
   flex: 0 0 auto;
@@ -79,5 +83,4 @@ body {
   aspect-ratio: 1/1;
   gap: var(--gap);
   overflow: hidden;
-  border-radius: 5%;
 }
