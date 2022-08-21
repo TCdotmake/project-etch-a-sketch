@@ -1,4 +1,4 @@
-function createBox() {
+function createBox(num) {
   const box = document.createElement("div");
   box.classList.add("box");
   box.addEventListener("mouseover", (e) => {
@@ -11,21 +11,22 @@ function createRow(num) {
   const row = document.createElement("div");
   row.classList.add("row");
   for (let i = 0; i < num; i++) {
-    row.insertAdjacentElement("beforeend", createBox());
+    row.insertAdjacentElement("beforeend", createBox(num));
   }
   return row;
 }
 
-function createGrid(x, y) {
+function createGrid(num) {
+  document.documentElement.style.setProperty("--pixels", num);
   const main = document.createElement("div");
   main.classList.add("main");
-  if (x > 0 && y > 0) {
-    for (let i = 0; i < y; i++) {
-      main.insertAdjacentElement("beforeend", createRow(x));
+  if (num > 0) {
+    for (let i = 0; i < num; i++) {
+      main.insertAdjacentElement("beforeend", createRow(num));
     }
   }
   return main;
 }
 
 const main = document.getElementById("mainContainer");
-main.insertAdjacentElement("beforeend", createGrid(30, 30));
+main.insertAdjacentElement("beforeend", createGrid(60));

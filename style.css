@@ -1,3 +1,9 @@
+:root {
+  --gap: 1px;
+  --main-sides: 420px;
+  --pixels: 1;
+}
+
 body,
 div {
   margin: 0;
@@ -44,8 +50,8 @@ body {
 }
 
 .box {
-  width: 10px;
-  height: 10px;
+  width: calc(var(--main-sides) / var(--pixels));
+  aspect-ratio: 1/1;
   background: plum;
   flex: 0 0 auto;
   transition: all 0.07s;
@@ -61,7 +67,7 @@ body {
   align-items: center;
   width: 100%;
   height: auto;
-  gap: 2px;
+  gap: var(--gap);
 }
 
 .main {
@@ -69,9 +75,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  gap: 2px;
+  height: var(--main-sides);
+  aspect-ratio: 1/1;
+  gap: var(--gap);
   overflow: hidden;
   border-radius: 5%;
 }
