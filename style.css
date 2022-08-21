@@ -1,8 +1,10 @@
 :root {
   --gap: 1px;
-  --main-sides: 420px;
+  --main-sides: 400px;
   --pixels: 1;
   --thumb: goldenrod;
+  --frame: rgb(219, 50, 50);
+  --frame-shadow: rgb(173, 35, 35);
 }
 
 body,
@@ -21,11 +23,12 @@ body {
 #frame {
   padding: 0 200px;
 
-  background: rgb(219, 50, 50);
+  background: var(--frame);
   border-radius: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 #logo {
   color: goldenrod;
@@ -44,13 +47,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 5px 6px 5px var(--frame-shadow);
 }
 
 #mainWrapper {
   width: var(--main-sides);
   aspect-ratio: 1/1;
 }
-#knobs {
+#sliderSection {
   width: 100%;
   height: 20%;
   display: flex;
@@ -125,4 +129,22 @@ body {
   aspect-ratio: 1/1;
   gap: var(--gap);
   overflow: hidden;
+}
+
+.knobs {
+  background: radial-gradient(circle at top left, white, wheat);
+  position: absolute;
+  bottom: 60px;
+  width: 150px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 5px 8px 6px var(--frame-shadow);
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
 }
