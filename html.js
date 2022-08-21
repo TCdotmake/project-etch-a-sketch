@@ -1,6 +1,9 @@
 function createBox() {
   const box = document.createElement("div");
   box.classList.add("box");
+  box.addEventListener("mouseover", (e) => {
+    e.target.classList.add("hover");
+  });
   return box;
 }
 
@@ -16,11 +19,13 @@ function createRow(num) {
 function createGrid(x, y) {
   const main = document.createElement("div");
   main.classList.add("main");
-  for (let i = 0; i < y; i++) {
-    main.insertAdjacentElement("beforeend", createRow(x));
+  if (x > 0 && y > 0) {
+    for (let i = 0; i < y; i++) {
+      main.insertAdjacentElement("beforeend", createRow(x));
+    }
   }
   return main;
 }
 
 const main = document.getElementById("mainContainer");
-main.insertAdjacentElement("beforeend", createGrid(16, 16));
+main.insertAdjacentElement("beforeend", createGrid(30, 30));
