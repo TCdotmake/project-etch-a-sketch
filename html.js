@@ -32,7 +32,7 @@ function createGrid(num) {
 
 const range = document.getElementById("rangeSlider");
 range.setAttribute("value", pixels);
-
+range.setAttribute("data-pix", pixels);
 range.addEventListener("change", (e) => {
   console.log("e.target.value", e.target.value);
   if (e.target.value !== pixels) {
@@ -42,7 +42,11 @@ range.addEventListener("change", (e) => {
     insertMain();
   }
 });
-
+range.addEventListener("input", (e) => {
+  range.setAttribute("data-pix", e.target.value);
+  const label = document.getElementById("sliderLabel");
+  label.innerText = `Grid Size ${e.target.value}X${e.target.value}`;
+});
 function insertMain() {
   const wrapper = document.getElementById("mainWrapper");
   wrapper.insertAdjacentElement("beforeend", createGrid(pixels));
