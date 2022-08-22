@@ -47,6 +47,15 @@ range.addEventListener("input", (e) => {
   const label = document.getElementById("sliderLabel");
   label.innerText = `Grid Size ${e.target.value}X${e.target.value}`;
 });
+const reset = document.getElementsByClassName("right")[0];
+reset.addEventListener("click", resetMain);
+
+function resetMain() {
+  let main = document.getElementsByClassName("main")[0];
+  main.remove();
+  insertMain();
+}
+
 function insertMain() {
   const wrapper = document.getElementById("mainWrapper");
   wrapper.insertAdjacentElement("beforeend", createGrid(pixels));

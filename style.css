@@ -7,22 +7,46 @@
   --frame-shadow: rgb(173, 35, 35);
   --bg1: rgb(83, 234, 169);
   --bg2: rgb(63, 112, 129);
+  font-family: "Roboto", sans-serif;
 }
 
 body,
 div {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 body {
   width: 100vw;
   height: 100vh;
   background: radial-gradient(circle at top right, var(--bg1), var(--bg2));
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: var(--frame-shadow);
+  text-align: end;
+  font-size: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(245, 222, 179, 0.437)
+  );
+  padding: 4px;
+}
+#copyright {
+  margin-right: 4ch;
+}
+
 #frame {
   padding: 0 200px;
 
@@ -37,7 +61,6 @@ body {
 #logo {
   color: goldenrod;
   font-size: 30px;
-  font-family: cursive;
   text-align: center;
   width: 100%;
   padding: 15px 0 5px 0;
@@ -97,7 +120,7 @@ body {
 
 #sliderLabel {
   color: wheat;
-  font-family: "Roboto", sans-serif;
+
   text-transform: capitalize;
   font-size: 18px;
   padding-bottom: 15px;
@@ -143,6 +166,19 @@ body {
   aspect-ratio: 1/1;
   border-radius: 50%;
   box-shadow: 5px 8px 6px var(--frame-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#noFunction {
+  color: var(--frame-shadow);
+}
+
+.reset {
+  color: var(--frame-shadow);
+  font-family: "Pacifico", cursive;
+  font-size: 18px;
 }
 
 .left {
