@@ -5,6 +5,8 @@
   --thumb: goldenrod;
   --frame: rgb(219, 50, 50);
   --frame-shadow: rgb(173, 35, 35);
+  --bg1: rgb(83, 234, 169);
+  --bg2: rgb(63, 112, 129);
 }
 
 body,
@@ -15,10 +17,11 @@ div {
 body {
   width: 100vw;
   height: 100vh;
-  background: rgb(111, 135, 141);
+  background: radial-gradient(circle at top right, var(--bg1), var(--bg2));
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 #frame {
   padding: 0 200px;
@@ -29,6 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 #logo {
   color: goldenrod;
@@ -147,4 +151,81 @@ body {
 
 .right {
   right: 20px;
+}
+
+#bgAni {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cube {
+  position: absolute;
+  left: 5%;
+  bottom: -500px;
+  width: 120px;
+  aspect-ratio: 1/1;
+  z-index: -1;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.69));
+  animation: rise 20s infinite;
+}
+.cube:nth-child(2) {
+  left: -5%;
+  width: 200px;
+  animation-duration: 23s;
+  animation-delay: 10s;
+}
+.cube:nth-child(3) {
+  left: 12%;
+  width: 80px;
+  animation-duration: 15s;
+  animation-delay: 5s;
+}
+.cube:nth-child(4) {
+  left: 30%;
+  width: 160px;
+  animation-delay: 3s;
+}
+.cube:nth-child(5) {
+  left: 40%;
+  width: 60px;
+  animation-duration: 12s;
+}
+.cube:nth-child(6) {
+  left: 60%;
+  width: 180px;
+  animation-duration: 16s;
+  animation-delay: 8s;
+}
+.cube:nth-child(7) {
+  left: 73%;
+  width: 30px;
+  animation-duration: 7s;
+}
+.cube:nth-child(8) {
+  left: 81%;
+  width: 200px;
+  animation-duration: 24s;
+  animation-delay: 2s;
+}
+.cube:nth-child(9) {
+  left: 89%;
+  width: 40px;
+  animation-duration: 13s;
+  animation-delay: 12s;
+}
+.cube:nth-child(10) {
+  left: 96%;
+  animation-delay: 3s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1500px) rotate(500deg);
+  }
 }
